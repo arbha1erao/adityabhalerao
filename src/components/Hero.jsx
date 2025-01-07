@@ -1,4 +1,4 @@
-import image from "/public/aditya.jpg"
+import image from "/public/aditya.png"
 const Hero = () => {
     return (
         <div id="home" className="px-16 flex min-h-screen w-full items-center justify-center py-28 md:px-32">
