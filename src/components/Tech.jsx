@@ -1,5 +1,4 @@
-import { BiLogoDocker, BiLogoGoLang, BiLogoGoogleCloud, BiLogoKubernetes, BiLogoMongodb, BiLogoPostgresql, BiLogoPython } from "react-icons/bi"
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 const Tech = () => {
 
@@ -16,7 +15,7 @@ const Tech = () => {
                 whileInView="visible"
                 transition={{ duration: 0.5 }}
                 className="text-4xl font-light text-white md:text-6xl">
-                Technologies
+                Tech
             </motion.h1>
 
             <div className="flex flex-wrap items-center justify-center gap-10 p-5">
@@ -25,54 +24,108 @@ const Tech = () => {
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoGoLang className="cursor-pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://golang.org" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/golang.svg"
+                            alt="GoLang"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
                 <motion.div
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoPython className="cursor-pointer text-[80px] text-yellow-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://www.python.org" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/python.svg"
+                            alt="Python"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
                 <motion.div
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoDocker className="cursor-pointer text-[80px] text-blue-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/docker.svg"
+                            alt="Docker"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
                 <motion.div
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoKubernetes className="cursor-pointer text-[80px] text-blue-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://kubernetes.io" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/kubernetes.svg"
+                            alt="Kubernetes"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
                 <motion.div
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoPostgresql className="cursor-pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/postgresql.svg"
+                            alt="PostgreSQL"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
                 <motion.div
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoMongodb className="cursor-pointer text-[80px] text-green-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://www.mongodb.com" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/mongodb.svg"
+                            alt="MongoDB"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
                 <motion.div
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
-                    <BiLogoGoogleCloud className="cursor-pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text[120px]" />
+                    <a href="https://cloud.google.com" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/googlecloud.svg"
+                            alt="Google Cloud"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
+                </motion.div>
+                <motion.div
+                    variants={variants}
+                    initial="hidden"
+                    whileInView="visible"
+                    transition={{ duration: 0.5 }}>
+                    <a href="https://www.keycloak.org" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/keycloak.svg"
+                            alt="Keycloak"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
                 </motion.div>
             </div>
-
         </div>
     )
 }
 
-export default Tech
+export default Tech;
