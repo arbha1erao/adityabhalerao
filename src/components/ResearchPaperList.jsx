@@ -32,7 +32,7 @@ const ResearchPaperList = () => {
             className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full"
           >
             <h2 className="text-xl font-semibold text-white">{paper.title}</h2>
-            <p className="text-gray-300 mt-2 ">{paper.summary}</p>
+            <p className="text-gray-400 mt-2 ">{paper.summary}</p>
             <a
               href={paper.link}
               target="_blank"
