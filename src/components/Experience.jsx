@@ -23,7 +23,7 @@ const Experience = () => {
                     </li>
                 </ul>
             ),
-            link: "https://geminustech.com",
+            link: "https://www.linkedin.com/company/diamanti/",
         },
         {
             company: "Geminus Tech",
@@ -52,7 +52,7 @@ const Experience = () => {
                     </li>
                 </ul>
             ),
-            link: "https://geminustech.com",
+            link: "https://www.linkedin.com/company/geminus-tech/",
         },
         {
             company: "Geminus Space",
@@ -66,7 +66,7 @@ const Experience = () => {
                     </li>
                 </ul>
             ),
-            link: "https://geminustech.com",
+            link: "https://www.linkedin.com/company/geminus-space/",
         },
     ];
 
@@ -95,10 +95,9 @@ const Experience = () => {
                             <img
                                 src={exp.logo}
                                 alt={`${exp.company} Logo`}
-                                className="w-16 h-16 rounded-full object-cover shadow-md"
+                                className="w-16 h-16 rounded-full object-cover shadow-md transition-all duration-300 hover:scale-110"
                             />
                         </a>
-
 
                         {/* Company Info */}
                         <div>
