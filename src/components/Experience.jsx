@@ -90,8 +90,12 @@ const Experience = () => {
                         transition={{ duration: 0.5, delay: index * 0.2 }}
                         className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 flex items-center gap-6"
                     >
-                        {/* Company Logo */}
-                        <a href={exp.link} target="_blank" rel="noopener noreferrer">
+                        <a
+                            href={exp.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden sm:block"
+                        >
                             <img
                                 src={exp.logo}
                                 alt={`${exp.company} Logo`}
@@ -101,7 +105,18 @@ const Experience = () => {
 
                         {/* Company Info */}
                         <div>
-                            <h2 className="text-xl font-semibold text-white md:text-2xl">{exp.company}</h2>
+                            {/* Company Name (Visible as a link on small screens) */}
+                            <a
+                                href={exp.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xl font-semibold text-white md:text-2xl block sm:hidden hover:underline"
+                            >
+                                {exp.company}
+                            </a>
+                            <h2 className="text-xl font-semibold text-white md:text-2xl hidden sm:block">
+                                {exp.company}
+                            </h2>
                             <h3 className="text-lg text-gray-400">{exp.role}</h3>
                             <p className="text-sm text-gray-500">{exp.duration}</p>
                             <p className="mt-4 text-gray-300">{exp.description}</p>
@@ -109,6 +124,7 @@ const Experience = () => {
                     </motion.div>
                 ))}
             </div>
+
         </div>
     );
 };
