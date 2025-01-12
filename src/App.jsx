@@ -35,7 +35,7 @@ export default function App() {
           }
         />
         <Route
-          path="/archive/ted-talks"
+          path="/archive/tedtalks"
           element={
             <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
               <TedTalksList />

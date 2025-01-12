@@ -29,7 +29,7 @@ function Archive() {
           </motion.div>
         </Link>
 
-        <Link to="/archive/ted-talks">
+        <Link to="/archive/tedtalks">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
