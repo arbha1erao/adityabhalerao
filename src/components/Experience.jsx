@@ -3,27 +3,18 @@ import { motion } from "framer-motion";
 const Experience = () => {
     const experiences = [
         {
-            company: "Diamanti",
-            logo: "/diamanti.jpeg",
-            role: "SDE Intern",
-            duration: "Oct 2024 - July 2024",
+            company: "Geminus Space",
+            logo: "/geminus_space.jpeg",
+            role: "Software Engineer",
+            duration: "Nov 2024 - Present",
             description: (
                 <ul className="list-disc pl-5 text-gray-300">
                     <li className="mb-1">
-                        <b>Spektra</b>: Fixed multiple bugs in React, enhancing the user experience.
-                    </li>
-                    <li className="mb-1">
-                        <b>Ultimate Enterprise and Ultima Accelerator</b>: Addressed and resolved critical Kubernetes RBAC vulnerabilities.
-                    </li>
-                    <li className="mb-1">
-                        <b>KubeVirt Integration</b>: Worked extensively with KubeVirt, which is implemented as a feature within Diamanti’s product suite.
-                    </li>
-                    <li className="mb-1">
-                        <b>Certifications</b>: Completed the Certified Kubernetes Administrator (CKA) certification.
+                        <b>Strata Platform Development</b>: Working on the development and maintenance of <b>Strata</b>, a geodata management platform.
                     </li>
                 </ul>
             ),
-            link: "https://www.linkedin.com/company/diamanti/",
+            link: "https://www.linkedin.com/company/geminus-space/",
         },
         {
             company: "Geminus Tech",
@@ -55,18 +46,27 @@ const Experience = () => {
             link: "https://www.linkedin.com/company/geminus-tech/",
         },
         {
-            company: "Geminus Space",
-            logo: "/geminus_space.jpeg",
-            role: "Software Engineer",
-            duration: "Nov 2024 - Present",
+            company: "Diamanti",
+            logo: "/diamanti.jpeg",
+            role: "SDE Intern",
+            duration: "Oct 2024 - July 2024",
             description: (
                 <ul className="list-disc pl-5 text-gray-300">
                     <li className="mb-1">
-                        <b>Strata Platform Development</b>: Working on the development and maintenance of <b>Strata</b>, a geodata management platform.
+                        <b>Spektra</b>: Fixed multiple bugs in React, enhancing the user experience.
+                    </li>
+                    <li className="mb-1">
+                        <b>Ultimate Enterprise and Ultima Accelerator</b>: Addressed and resolved critical Kubernetes RBAC vulnerabilities.
+                    </li>
+                    <li className="mb-1">
+                        <b>KubeVirt Integration</b>: Worked extensively with KubeVirt, which is implemented as a feature within Diamanti’s product suite.
+                    </li>
+                    <li className="mb-1">
+                        <b>Certifications</b>: Completed the Certified Kubernetes Administrator (CKA) certification.
                     </li>
                 </ul>
             ),
-            link: "https://www.linkedin.com/company/geminus-space/",
+            link: "https://www.linkedin.com/company/diamanti/",
         },
     ];
 
