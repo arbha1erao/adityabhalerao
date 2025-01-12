@@ -14,7 +14,7 @@ function Archive() {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-        <Link to="/archive/research-papers">
+        <Link to="/archive/papershelf">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -22,9 +22,9 @@ function Archive() {
             transition={{ duration: 0.4 }}
             className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full"
           >
-            <h3 className="text-xl font-semibold text-white text-center">Research Papers</h3>
+            <h3 className="text-xl font-semibold text-white text-center">Papershelf</h3>
             <p className="mt-2 text-gray-400 text-center">
-              Explore the collection of research papers I've read.
+              Explore the collection of papers I've read.
             </p>
           </motion.div>
         </Link>

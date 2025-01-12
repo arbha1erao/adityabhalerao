@@ -5,8 +5,8 @@ import Navbar from "./components/Navbar";
 import Tech from "./components/Tech";
 import Archive from "./components/Archive";
 import Experience from "./components/Experience";
-import ResearchPaperList from "./components/ResearchPaperList";
 import TedTalksList from "./components/TedTalksList";
+import Papershelf from "./components/Papershelf";
 
 export default function App() {
   return (
@@ -27,10 +27,10 @@ export default function App() {
           }
         />
         <Route
-          path="/archive/research-papers"
+          path="/archive/papershelf"
           element={
             <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
-              <ResearchPaperList />
+              <Papershelf />
             </main>
           }
         />

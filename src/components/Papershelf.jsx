@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const researchPapers = [
+const papersList = [
   {
     title: "In Search of an Understandable Consensus Algorithm",
     summary: "This paper presents an introduction to the RAFT consensus algorithm, emphasizing its simplicity and ease of understanding compared to other distributed consensus algorithms.",
@@ -14,15 +14,15 @@ const researchPapers = [
   }
 ];
 
-const ResearchPaperList = () => {
+const Papershelf = () => {
   return (
     <div className="flex flex-col items-center w-full px-8 py-16 pt-36">
       <h1 className="text-4xl font-light text-white md:text-6xl mb-12">
-        Research Papers
+        Papershelf
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-        {researchPapers.map((paper, index) => (
+        {papersList.map((paper, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 50 }}
@@ -48,4 +48,4 @@ const ResearchPaperList = () => {
   );
 };
 
-export default ResearchPaperList;
+export default Papershelf;
