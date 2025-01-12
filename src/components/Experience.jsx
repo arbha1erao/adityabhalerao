@@ -49,7 +49,7 @@ const Experience = () => {
             company: "Diamanti",
             logo: "/diamanti.jpeg",
             role: "SDE Intern",
-            duration: "Oct 2024 - July 2024",
+            duration: "Oct 2023 - July 2024",
             description: (
                 <ul className="list-disc pl-5 text-gray-300">
                     <li className="mb-1">
