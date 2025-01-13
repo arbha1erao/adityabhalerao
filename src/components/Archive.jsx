@@ -3,15 +3,31 @@ import React from "react";
 import { motion } from "framer-motion";
 
 function Archive() {
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 }
+  }
+
   return (
     <div id="archive" className="flex flex-col items-center w-full px-8 py-16 pt-36">
-      <h1 className="text-4xl font-light text-white md:text-6xl mb-12">
+      <motion.h1
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-light text-white md:text-6xl mb-12">
         Archive
-      </h1>
+      </motion.h1>
 
-      <p className="text-lg text-gray-300 text-center mb-12">
+      <motion.p
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="text-lg text-gray-300 text-center mb-12">
         Browse through resources that have inspired and expanded my understanding.
-      </p>
+      </motion.p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
         <Link to="/archive/papershelf">

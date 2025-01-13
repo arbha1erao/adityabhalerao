@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 
 const Experience = () => {
+
+    const variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 }
+    }
+
     const experiences = [
         {
             company: "Geminus Space",
@@ -73,21 +79,21 @@ const Experience = () => {
     return (
         <div id="experience" className="flex flex-col items-center min-h-[70vh] w-full px-8 py-16 md:px-16">
             <motion.h1
-                initial={{ y: -50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl font-light text-white md:text-6xl mb-12"
-            >
+                variants={variants}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.5 }}
+                className="text-4xl font-light text-white md:text-6xl mb-12">
                 Experience
             </motion.h1>
 
             <div className="flex flex-col gap-16">
                 {experiences.map((exp, index) => (
                     <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                        variants={variants}
+                        initial="hidden"
+                        whileInView="visible"
+                        transition={{ duration: 0.5 }}
                         className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 flex items-center gap-6"
                     >
                         <a
