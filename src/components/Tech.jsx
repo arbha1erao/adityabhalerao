@@ -50,6 +50,19 @@ const Tech = () => {
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.5 }}>
+                    <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/fastapi.svg"
+                            alt="FastAPI"
+                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                        />
+                    </a>
+                </motion.div>
+                <motion.div
+                    variants={variants}
+                    initial="hidden"
+                    whileInView="visible"
+                    transition={{ duration: 0.5 }}>
                     <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">
                         <img
                             src="/docker.svg"
