@@ -18,14 +18,17 @@ const Navbar = () => {
                 <img src="/aditya.svg" alt="Aditya Logo" className="h-10 w-10" />
             </div>
 
+            {/* Desktop Nav */}
             <ul className="hidden md:flex gap-10">
                 <li onClick={() => navigateAndScroll("/", "hero")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Home</li>
                 <li onClick={() => navigateAndScroll("/", "tech")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Tech</li>
                 <li onClick={() => navigateAndScroll("/", "experience")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Experience</li>
                 <li onClick={() => navigateAndScroll("/", "archive")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Archive</li>
+                <li onClick={() => navigateAndScroll("/wakatime", "")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">WakaTime</li>
                 <li onClick={() => navigateAndScroll("/", "contact")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Contact</li>
             </ul>
 
+            {/* Social Links */}
             <ul className="hidden md:flex gap-5">
                 <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
                     <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer">
@@ -39,12 +42,14 @@ const Navbar = () => {
                 </li>
             </ul>
 
+            {/* Mobile Menu Icon */}
             {isOpen ? (
                 <BiX className="block md:hidden text-4xl" onClick={menuOpen} />
             ) : (
                 <BiMenu className="block md:hidden text-4xl" onClick={menuOpen} />
             )}
 
+            {/* Mobile Nav */}
             {isOpen && (
                 <div className="fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start justify-start gap-10 border-l border-gray-800 bg-black/90 p-12">
                     <ul className="flex flex-col gap-8">
@@ -52,6 +57,7 @@ const Navbar = () => {
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "tech"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Tech</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "experience"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Experience</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "archive"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Archive</li>
+                        <li onClick={() => { menuOpen(); navigateAndScroll("/wakatime", ""); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">WakaTime</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "contact"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Contact</li>
                     </ul>
                 </div>
