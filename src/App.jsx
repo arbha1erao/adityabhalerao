@@ -9,11 +9,14 @@ import TedTalksList from "./components/TedTalksList";
 import Papershelf from "./components/Papershelf";
 import WakaTimeStats from "./components/WakaTimeStats";
 
+import { Analytics } from '@vercel/analytics/react';
+
 export default function App() {
   return (
     <Router>
       <div className="fixed -z-10 min-h-screen w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
       <Navbar />
+      <Analytics />
       <Routes>
         <Route
           path="/"
