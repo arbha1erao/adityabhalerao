@@ -7,6 +7,7 @@ import Archive from "./components/Archive";
 import Experience from "./components/Experience";
 import TedTalksList from "./components/TedTalksList";
 import Papershelf from "./components/Papershelf";
+import WakaTimeStats from "./components/WakaTimeStats";
 
 export default function App() {
   return (
@@ -39,6 +40,14 @@ export default function App() {
           element={
             <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
               <TedTalksList />
+            </main>
+          }
+        />
+        <Route
+          path="/wakatime"
+          element={
+            <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
+              <WakaTimeStats />
             </main>
           }
         />
