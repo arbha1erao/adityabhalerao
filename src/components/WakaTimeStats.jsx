@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 // import { Tooltip as MuiTooltip } from '@mui/material';
 import { FiHelpCircle } from "react-icons/fi";
+
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     const hours = payload[0].value;
@@ -36,6 +37,7 @@ const WakaTimeStats = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     const fetchWakaTimeStats = async () => {
@@ -112,6 +114,32 @@ const WakaTimeStats = () => {
           </LineChart>
         </ResponsiveContainer>
       </motion.div>
+
+      {/* Help Icon and Tooltip */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          onHoverStart={() => setShowTooltip(true)}
+          onHoverEnd={() => setShowTooltip(false)}
+          className="cursor-pointer text-sky-400"
+        >
+          <FiHelpCircle size={28} />
+        </motion.div>
+        {showTooltip && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute bottom-10 right-0 w-64 bg-gray-800 p-4 rounded-lg border border-gray-700 shadow-xl"
+          >
+            <p className="text-gray-300 text-sm mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p className="text-gray-300 text-sm">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 };
