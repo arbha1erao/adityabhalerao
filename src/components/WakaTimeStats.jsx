@@ -121,7 +121,7 @@ const WakaTimeStats = () => {
           whileHover={{ scale: 1.1 }}
           onHoverStart={() => setShowTooltip(true)}
           onHoverEnd={() => setShowTooltip(false)}
-          className="cursor-pointer text-sky-400"
+          className="cursor-pointer text-white"
         >
           <FiHelpCircle size={28} />
         </motion.div>
@@ -132,10 +132,10 @@ const WakaTimeStats = () => {
             className="absolute bottom-10 right-0 w-64 bg-gray-800 p-4 rounded-lg border border-gray-700 shadow-xl"
           >
             <p className="text-gray-300 text-sm mb-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              The stats displayed here are pulled directly from WakaTime, a tool that tracks your programming activity.
             </p>
             <p className="text-gray-300 text-sm">
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            These stats refresh every 24 hours.
             </p>
           </motion.div>
         )}
