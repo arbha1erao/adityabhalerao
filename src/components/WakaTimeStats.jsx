@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
-// import { Tooltip as MuiTooltip } from '@mui/material';
 import { FiHelpCircle } from "react-icons/fi";
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -31,7 +30,6 @@ const CustomTooltip = ({ active, payload, label }) => {
 
   return null;
 };
-
 
 const WakaTimeStats = () => {
   const [data, setData] = useState([]);
@@ -67,6 +65,22 @@ const WakaTimeStats = () => {
 
     fetchWakaTimeStats();
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".help-tooltip")) {
+        setShowTooltip(false);
+      }
+    };
+
+    if (showTooltip) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showTooltip]);
 
   if (loading) return <p className="text-gray-400 text-center">Loading WakaTime stats...</p>;
   if (error) return <p className="text-red-500 text-center">Error: {error}</p>;
@@ -119,9 +133,8 @@ const WakaTimeStats = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <motion.div
           whileHover={{ scale: 1.1 }}
-          onHoverStart={() => setShowTooltip(true)}
-          onHoverEnd={() => setShowTooltip(false)}
-          className="cursor-pointer text-white"
+          onClick={() => setShowTooltip((prev) => !prev)}
+          className="cursor-pointer text-white help-tooltip"
         >
           <FiHelpCircle size={28} />
         </motion.div>
@@ -129,13 +142,13 @@ const WakaTimeStats = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute bottom-10 right-0 w-64 bg-gray-800 p-4 rounded-lg border border-gray-700 shadow-xl"
+            className="absolute bottom-10 right-0 w-64 bg-gray-800 p-4 rounded-lg border border-gray-700 shadow-xl help-tooltip"
           >
             <p className="text-gray-300 text-sm mb-2">
               The stats displayed here are pulled directly from WakaTime, a tool that tracks your programming activity.
             </p>
             <p className="text-gray-300 text-sm">
-            These stats refresh every 24 hours.
+              These stats refresh every 24 hours.
             </p>
           </motion.div>
         )}
