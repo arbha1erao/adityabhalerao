@@ -49,12 +49,15 @@ const WakaTimeStats = () => {
         }
 
         const result = await response.json();
-        const formattedData = result.data.map((entry) => ({
-          date: new Date(entry.range.start).toLocaleString('en', { weekday: 'short' }),
-          hours: (entry.grand_total.total_seconds / 3600).toFixed(2),
-        }));
-
         const today = new Date();
+        const formattedData = result.data.map((entry) => {
+          const date = new Date(entry.range.start);
+          return {
+            date: date.toDateString() === today.toDateString() ? "Today" : date.toLocaleString('en', { weekday: 'short' }),
+            hours: (entry.grand_total.total_seconds / 3600).toFixed(2),
+          };
+        });
+
         const tomorrow = new Date();
         tomorrow.setDate(today.getDate() + 1);
         formattedData.push({
