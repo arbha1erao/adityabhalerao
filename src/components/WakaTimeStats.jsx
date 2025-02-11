@@ -41,7 +41,7 @@ const WakaTimeStats = () => {
     const fetchWakaTimeStats = async () => {
       try {
         const response = await fetch(
-          "https://wakatime.com/share/@a4d66bd6-2941-42ae-8ac6-d23ccbe7cd5c/644e528b-e00e-43ee-bba1-eaebf86bc60c.json"
+          "https://wakatime.com/share/@a4d66bd6-2941-42ae-8ac6-d23ccbe7cd5c/5202b3f7-1334-4fec-aa2f-6d0bc6f33f3e.json"
         );
 
         if (!response.ok) {
