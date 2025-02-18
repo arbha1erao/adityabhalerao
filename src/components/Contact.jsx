@@ -27,7 +27,7 @@ export default function ContactSection() {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col items-center space-y-8 text-center"
                 >
-                    <p className="text-lg text-gray-500 font-semibold">
+                    <p className="text-lg text-gray-300 font-semibold">
                         I'm always open to new opportunities, collaborations, or just a friendly chat! Drop me a message and I'll get back to you as soon as I can.
                     </p>
                     <a
