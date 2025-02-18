@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
-import { FiHelpCircle } from "react-icons/fi";
+import stats from "../data/statsData.js";
 
 // Custom Tooltip component
 const CustomTooltip = ({ active, payload, label }) => {
@@ -46,9 +46,7 @@ const Stats = () => {
   useEffect(() => {
     const fetchWakaTimeStats = async () => {
       try {
-        const response = await fetch(
-          "https://wakatime.com/share/@a4d66bd6-2941-42ae-8ac6-d23ccbe7cd5c/90775415-d105-4ca2-81cc-f75b5de4854b.json"
-        );
+        const response = await fetch(stats.codingActivityURL);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);

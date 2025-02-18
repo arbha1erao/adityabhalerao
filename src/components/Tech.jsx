@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
+import tech from "../data/techData.js";
 
 const Tech = () => {
-
     const variants = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0 }
-    }
+    };
 
     return (
         <div id="tech" className="flex flex-col items-center w-full px-8 py-16 pt-36">
@@ -28,126 +28,25 @@ const Tech = () => {
             </motion.p>
 
             <div className="flex flex-wrap items-center justify-center gap-10 p-5">
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://golang.org" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/golang.svg"
-                            alt="GoLang"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://www.python.org" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/python.svg"
-                            alt="Python"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/fastapi.svg"
-                            alt="FastAPI"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/docker.svg"
-                            alt="Docker"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://kubernetes.io" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/kubernetes.svg"
-                            alt="Kubernetes"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/postgresql.svg"
-                            alt="PostgreSQL"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://www.mongodb.com" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/mongodb.svg"
-                            alt="MongoDB"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://cloud.google.com" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/googlecloud.svg"
-                            alt="Google Cloud"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
-                <motion.div
-                    variants={variants}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ duration: 0.5 }}>
-                    <a href="https://www.keycloak.org" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/keycloak.svg"
-                            alt="Keycloak"
-                            className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
-                        />
-                    </a>
-                </motion.div>
+                {tech.map((tech, index) => (
+                    <motion.div
+                        key={index}
+                        variants={variants}
+                        initial="hidden"
+                        whileInView="visible"
+                        transition={{ duration: 0.5 }}>
+                        <a href={tech.link} target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={tech.image}
+                                alt={tech.name}
+                                className="cursor-pointer transition-all duration-300 hover:-translate-y-5 w-[80px] sm:w-[100px] md:w-[120px]"
+                            />
+                        </a>
+                    </motion.div>
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Tech;
