@@ -8,6 +8,7 @@ import Experience from "./components/Experience";
 import TedTalksList from "./components/TedTalksList";
 import Papershelf from "./components/Papershelf";
 import Stats from "./components/Stats";
+import OSS from "./components/OSS";
 
 import { Analytics } from '@vercel/analytics/react';
 
@@ -25,6 +26,7 @@ export default function App() {
               <Hero />
               <Tech />
               <Experience />
+              <OSS />
               <Archive />
               <Stats />
               <Contact />
