@@ -90,6 +90,7 @@ const Experience = () => {
             <div className="flex flex-col gap-16">
                 {experiences.map((exp, index) => (
                     <motion.div
+                        key={exp.company}
                         variants={variants}
                         initial="hidden"
                         whileInView="visible"
@@ -125,7 +126,7 @@ const Experience = () => {
                             </h2>
                             <h3 className="text-lg text-gray-400">{exp.role}</h3>
                             <p className="text-sm text-gray-500">{exp.duration}</p>
-                            <p className="mt-4 text-gray-300">{exp.description}</p>
+                            <div className="mt-4 text-gray-300">{exp.description}</div>
                         </div>
                     </motion.div>
                 ))}
