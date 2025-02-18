@@ -1,80 +1,11 @@
 import { motion } from "framer-motion";
+import experiences from "../data/experienceData";
 
 const Experience = () => {
-
     const variants = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0 }
-    }
-
-    const experiences = [
-        {
-            company: "Geminus Space",
-            logo: "/geminus_space.jpeg",
-            role: "Software Engineer",
-            duration: "Nov 2024 - Present",
-            description: (
-                <ul className="list-disc pl-5 text-gray-300">
-                    <li className="mb-1">
-                        <b>Strata Platform Development</b>: Working on the development and maintenance of <b>Strata</b>, a geodata management platform.
-                    </li>
-                </ul>
-            ),
-            link: "https://www.linkedin.com/company/geminus-space/",
-        },
-        {
-            company: "Geminus Tech",
-            logo: "/geminus_tech.jpeg",
-            role: "Software Engineer",
-            duration: "Jul 2024 - Present",
-            description: (
-                <ul className="list-disc pl-5 text-gray-300">
-                    <li className="mb-1">
-                        <b>Backend Development</b>: Developing backend for <b>Pyro</b>, a system designed for companies involved in biochar production.
-                    </li>
-                    <li className="mb-1">
-                        <b>API Maintenance</b>: Responsible for building, maintaining, and optimizing APIs in <b>Pyro</b> to support seamless integration with internal and external services.
-                    </li>
-                    <li className="mb-1">
-                        <b>Authorization Model</b>: Implemented a robust authorization model in <b>Pyro</b>, ensuring secure access and role-based permissions across the platform.
-                    </li>
-                    <li className="mb-1">
-                        <b>Organization Features</b>: Introduced organization features in <b>Pyro</b> for improved user management and data isolation within the platform.
-                    </li>
-                    <li className="mb-1">
-                        <b>B2B Multitenancy</b>: Implemented B2B multitenancy in <b>Pyro</b>, ensuring that each company (tenant) has a fully isolated environment with tailored data and user access.
-                    </li>
-                    <li className="mb-1">
-                        <b>Antaris Cloud Platform Integration</b>: Integrated various internal services within the <a href="https://www.antaris.space/platform" target="_blank" rel="noopener noreferrer" className="text-blue-500">Antaris Cloud Platform</a>, improving the platform’s service orchestration.
-                    </li>
-                </ul>
-            ),
-            link: "https://www.linkedin.com/company/geminus-tech/",
-        },
-        {
-            company: "Diamanti",
-            logo: "/diamanti.jpeg",
-            role: "SDE Intern",
-            duration: "Oct 2023 - July 2024",
-            description: (
-                <ul className="list-disc pl-5 text-gray-300">
-                    <li className="mb-1">
-                        <b>Spektra</b>: Fixed multiple bugs in React, enhancing the user experience.
-                    </li>
-                    <li className="mb-1">
-                        <b>Ultimate Enterprise and Ultima Accelerator</b>: Addressed and resolved critical Kubernetes RBAC vulnerabilities.
-                    </li>
-                    <li className="mb-1">
-                        <b>KubeVirt Integration</b>: Worked extensively with KubeVirt, which is implemented as a feature within Diamanti’s product suite.
-                    </li>
-                    <li className="mb-1">
-                        <b>Certifications</b>: Completed the Certified Kubernetes Administrator (CKA) certification.
-                    </li>
-                </ul>
-            ),
-            link: "https://www.linkedin.com/company/diamanti/",
-        },
-    ];
+    };
 
     return (
         <div id="experience" className="flex flex-col items-center w-full px-8 py-16 pt-36">
@@ -126,12 +57,11 @@ const Experience = () => {
                             </h2>
                             <h3 className="text-lg text-gray-400">{exp.role}</h3>
                             <p className="text-sm text-gray-500">{exp.duration}</p>
-                            <div className="mt-4 text-gray-300">{exp.description}</div>
+                            <div className="mt-4 text-gray-300" dangerouslySetInnerHTML={{ __html: exp.description }}></div>
                         </div>
                     </motion.div>
                 ))}
             </div>
-
         </div>
     );
 };
