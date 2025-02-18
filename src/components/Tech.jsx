@@ -18,6 +18,15 @@ const Tech = () => {
                 Tech
             </motion.h1>
 
+            <motion.p
+                variants={variants}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.5 }}
+                className="text-lg text-gray-300 text-center mb-12">
+                Technologies I work with daily – from programming languages and frameworks to containerization tools, databases and cloud services.
+            </motion.p>
+
             <div className="flex flex-wrap items-center justify-center gap-10 p-5">
                 <motion.div
                     variants={variants}
