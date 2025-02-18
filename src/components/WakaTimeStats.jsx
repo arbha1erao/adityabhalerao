@@ -135,6 +135,31 @@ const WakaTimeStats = () => {
           </LineChart>
         </ResponsiveContainer>
       </motion.div>
+
+      {/* Help Icon and Tooltip */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          onClick={() => setShowTooltip((prev) => !prev)}
+          className="cursor-pointer text-white help-tooltip"
+        >
+          <FiHelpCircle size={28} />
+        </motion.div>
+        {showTooltip && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute bottom-10 right-0 w-64 bg-gray-800 p-4 rounded-lg border border-gray-700 shadow-xl help-tooltip"
+          >
+            <p className="text-gray-300 text-sm mb-2">
+              The stats displayed here are pulled directly from WakaTime, a tool that tracks your programming activity.
+            </p>
+            <p className="text-gray-300 text-sm">
+              These stats refresh every 24 hours.
+            </p>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 };
