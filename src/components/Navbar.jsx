@@ -23,8 +23,9 @@ const Navbar = () => {
                 <li onClick={() => navigateAndScroll("/", "hero")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Home</li>
                 <li onClick={() => navigateAndScroll("/", "tech")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Tech</li>
                 <li onClick={() => navigateAndScroll("/", "experience")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Experience</li>
+                <li onClick={() => navigateAndScroll("/", "oss")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">OSS</li>
                 <li onClick={() => navigateAndScroll("/", "archive")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Archive</li>
-                <li onClick={() => navigateAndScroll("/wakatime", "")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">WakaTime</li>
+                <li onClick={() => navigateAndScroll("/", "stats")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Stats</li>
                 <li onClick={() => navigateAndScroll("/", "contact")} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Contact</li>
             </ul>
 
@@ -56,8 +57,9 @@ const Navbar = () => {
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "hero"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Home</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "tech"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Tech</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "experience"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Experience</li>
+                        <li onClick={() => { menuOpen(); navigateAndScroll("/", "oss"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">OSS</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "archive"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Archive</li>
-                        <li onClick={() => { menuOpen(); navigateAndScroll("/wakatime", ""); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">WakaTime</li>
+                        <li onClick={() => { menuOpen(); navigateAndScroll("/", "stats"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Stats</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "contact"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Contact</li>
                     </ul>
                 </div>

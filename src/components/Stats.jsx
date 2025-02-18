@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 import { FiHelpCircle } from "react-icons/fi";
 
+// Custom Tooltip component
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     const hours = payload[0].value;
@@ -31,17 +32,22 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const WakaTimeStats = () => {
+// Stats component
+const Stats = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showTooltip, setShowTooltip] = useState(false);
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 }
+  }
 
   useEffect(() => {
     const fetchWakaTimeStats = async () => {
       try {
         const response = await fetch(
-          "https://wakatime.com/share/@a4d66bd6-2941-42ae-8ac6-d23ccbe7cd5c/5202b3f7-1334-4fec-aa2f-6d0bc6f33f3e.json"
+          "https://wakatime.com/share/@a4d66bd6-2941-42ae-8ac6-d23ccbe7cd5c/90775415-d105-4ca2-81cc-f75b5de4854b.json"
         );
 
         if (!response.ok) {
@@ -73,30 +79,29 @@ const WakaTimeStats = () => {
     fetchWakaTimeStats();
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest(".help-tooltip")) {
-        setShowTooltip(false);
-      }
-    };
-
-    if (showTooltip) {
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [showTooltip]);
-
-  if (loading) return <p className="text-gray-400 text-center">Loading WakaTime stats...</p>;
+  if (loading) return <p className="text-gray-400 text-center">Loading stats...</p>;
   if (error) return <p className="text-red-500 text-center">Error: {error}</p>;
 
   return (
-    <div className="flex flex-col items-center w-full px-8 py-16 pt-36">
-      <h1 className="text-4xl font-light text-white md:text-6xl mb-12">
-        WakaTime Stats
-      </h1>
+    <div id="stats" className="flex flex-col items-center w-full px-8 py-16 pt-36">
+      <motion.h1
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-light text-white md:text-6xl mb-12">
+        Stats
+        {/* <SuperscriptHelpIcon /> */}
+      </motion.h1>
+
+      <motion.p
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="text-lg text-gray-300 text-center mb-12">
+        The stats displayed here are pulled directly from <a href="https://wakatime.com/" target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:underline"><b>WakaTime</b></a>, a tool that tracks your programming activity. These stats refresh every 24 hours.
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -135,33 +140,8 @@ const WakaTimeStats = () => {
           </LineChart>
         </ResponsiveContainer>
       </motion.div>
-
-      {/* Help Icon and Tooltip */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          onClick={() => setShowTooltip((prev) => !prev)}
-          className="cursor-pointer text-white help-tooltip"
-        >
-          <FiHelpCircle size={28} />
-        </motion.div>
-        {showTooltip && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute bottom-10 right-0 w-64 bg-gray-800 p-4 rounded-lg border border-gray-700 shadow-xl help-tooltip"
-          >
-            <p className="text-gray-300 text-sm mb-2">
-              The stats displayed here are pulled directly from WakaTime, a tool that tracks your programming activity.
-            </p>
-            <p className="text-gray-300 text-sm">
-              These stats refresh every 24 hours.
-            </p>
-          </motion.div>
-        )}
-      </div>
     </div>
   );
 };
 
-export default WakaTimeStats;
+export default Stats;
