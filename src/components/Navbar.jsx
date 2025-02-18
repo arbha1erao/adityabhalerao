@@ -62,6 +62,18 @@ const Navbar = () => {
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "stats"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Stats</li>
                         <li onClick={() => { menuOpen(); navigateAndScroll("/", "contact"); }} className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">Contact</li>
                     </ul>
+                    <ul className="flex flex-wrap gap-5">
+                        <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
+                            <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer">
+                                <BsGithub />
+                            </a>
+                        </li>
+                        <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-blue-500 hover:opacity-100">
+                            <a href="https://www.linkedin.com/in/bhalerao-aditya/" target="_blank" rel="noopener noreferrer">
+                                <BsLinkedin />
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             )}
         </nav>
