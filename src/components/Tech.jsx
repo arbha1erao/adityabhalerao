@@ -8,13 +8,13 @@ const Tech = () => {
     }
 
     return (
-        <div id="tech" className="flex min-h-[70vh] w-full flex-col items-center justify-center gap-16 md:gap-32">
+        <div id="tech" className="flex flex-col items-center w-full px-8 py-16 pt-36">
             <motion.h1
                 variants={variants}
                 initial="hidden"
                 whileInView="visible"
                 transition={{ duration: 0.5 }}
-                className="text-4xl font-light text-white md:text-6xl">
+                className="text-4xl font-light text-white md:text-6xl mb-12">
                 Tech
             </motion.h1>
 

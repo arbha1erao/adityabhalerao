@@ -77,7 +77,7 @@ const Experience = () => {
     ];
 
     return (
-        <div id="experience" className="flex flex-col items-center min-h-[70vh] w-full px-8 py-16 md:px-16">
+        <div id="experience" className="flex flex-col items-center w-full px-8 py-16 pt-36">
             <motion.h1
                 variants={variants}
                 initial="hidden"
