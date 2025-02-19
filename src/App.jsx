@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/react';
+
 import Contact from "./components/Contact";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
@@ -9,14 +11,15 @@ import TedTalksList from "./components/TedTalksList";
 import Papershelf from "./components/Papershelf";
 import Stats from "./components/Stats";
 import OSS from "./components/OSS";
+import ParticlesBackground from "./components/ParticlesBackground";
 
-import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   return (
     <Router>
       <div className="fixed -z-10 min-h-screen w-full bg-gradient-to-br from-black via-[#0a0a23] to-[#111132]"></div>
       {/* <div className="fixed -z-10 min-h-screen w-full bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]"></div> */}
+      <ParticlesBackground />
 
       <Navbar />
       <Analytics />
