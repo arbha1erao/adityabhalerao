@@ -22,10 +22,10 @@ const Experience = () => {
                 {experiences.map((exp, index) => (
                     <motion.div
                         key={exp.company}
-                        variants={variants}
-                        initial="hidden"
-                        whileInView="visible"
-                        transition={{ duration: 0.5 }}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ scale: 1.04, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
+                        transition={{ duration: 0.4 }}
                         className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 flex items-center gap-6"
                     >
                         <a
