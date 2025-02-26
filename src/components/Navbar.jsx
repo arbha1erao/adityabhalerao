@@ -20,22 +20,31 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const sections = ['hero', 'tech', 'experience', 'oss', 'archive', 'stats', 'contact'];
+            let largestVisibleSection = null;
+            let maxVisibleHeight = 0;
 
-            for (const section of sections) {
+            sections.forEach((section) => {
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
-                    if (rect.top <= 100 && rect.bottom >= 100) {
-                        setActiveSection(section);
-                        break;
+                    const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+
+                    if (visibleHeight > maxVisibleHeight) {
+                        maxVisibleHeight = visibleHeight;
+                        largestVisibleSection = section;
                     }
                 }
+            });
+
+            if (largestVisibleSection && largestVisibleSection !== activeSection) {
+                setActiveSection(largestVisibleSection);
             }
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [activeSection]);
+
 
     const getNavItemClass = (section) => {
         const baseClasses = "cursor-pointer transition-all duration-300 flex items-center";
