@@ -41,7 +41,7 @@ const Navbar = () => {
         const baseClasses = "cursor-pointer transition-all duration-300 flex items-center";
 
         if (section === activeSection) {
-            return `${baseClasses} text-white opacity-100 font-medium transform scale-110`;
+            return `${baseClasses} text-white opacity-100 font-medium transform scale-125`;
         }
 
         return `${baseClasses} opacity-70 hover:opacity-100`;
