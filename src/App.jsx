@@ -17,7 +17,7 @@ import ParticlesBackground from "./components/ParticlesBackground";
 export default function App() {
   return (
     <Router>
-      <div className="fixed -z-10 min-h-screen w-full bg-gradient-to-br from-black via-[#0a0a23] to-[#111132]"></div>
+      <div className="fixed -z-20 min-h-screen w-full bg-gradient-to-br from-black via-[#0a0a23] to-[#111132]"></div>
       {/* <div className="fixed -z-10 min-h-screen w-full bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]"></div> */}
       <ParticlesBackground />
 
