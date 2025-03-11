@@ -13,10 +13,7 @@ export default function ContactSection() {
 
     const showMessage = (msg) => {
         setMessage(msg);
-
-        setTimeout(() => {
-            setMessage("");
-        }, 3000);
+        setTimeout(() => setMessage(""), 1500);
     };
 
     const sendEmail = async (e) => {
@@ -26,19 +23,26 @@ export default function ContactSection() {
 
         const formData = new FormData(form.current);
         const data = {
-            user_name: formData.get("user_name").trim(),
-            user_email: formData.get("user_email").trim(),
+            sender_name: formData.get("sender_name").trim(),
+            sender_email: formData.get("sender_email").trim(),
+            subject: formData.get("subject").trim(),
             message: formData.get("message").trim()
         };
 
-        if (!data.user_name || !data.user_email || !data.message) {
-            showMessage("Please fill in all fields.");
+        if (!data.sender_name || !data.sender_email || !data.subject || !data.message) {
+            showMessage("Please fill in all the fields");
             setLoading(false);
             return;
         }
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.user_email)) {
-            showMessage("Please enter a valid email address.");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.sender_email)) {
+            showMessage("Please enter a valid email address");
+            setLoading(false);
+            return;
+        }
+
+        if (data.message.length > 1000) {
+            showMessage("Message should not exceed 1000 characters");
             setLoading(false);
             return;
         }
@@ -50,7 +54,6 @@ export default function ContactSection() {
                 body: JSON.stringify(data)
             });
 
-            const result = await response.json();
             if (response.ok) {
                 showMessage("Email sent successfully!");
                 form.current.reset();
@@ -58,7 +61,7 @@ export default function ContactSection() {
                 throw new Error();
             }
         } catch {
-            showMessage("Failed to send email.");
+            showMessage("Failed to send email");
         } finally {
             setLoading(false);
         }
@@ -86,22 +89,34 @@ export default function ContactSection() {
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.6 }}
-                    className="flex flex-col items-center space-y-6 text-center w-full max-w-lg"
+                    className="flex flex-col items-center space-y-6 text-center w-full max-w-2xl"
+                    noValidate
                 >
+                    <div className="flex w-full space-x-4">
+                        <input
+                            type="text"
+                            name="sender_name"
+                            placeholder="Your Name"
+                            required
+                            className="w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                        <input
+                            type="email"
+                            name="sender_email"
+                            placeholder="Your Email"
+                            required
+                            className="w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                    </div>
+
                     <input
                         type="text"
-                        name="user_name"
-                        placeholder="Your Name"
+                        name="subject"
+                        placeholder="Subject"
                         required
                         className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
-                    <input
-                        type="email"
-                        name="user_email"
-                        placeholder="Your Email"
-                        required
-                        className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    />
+
                     <textarea
                         name="message"
                         placeholder="Your Message"
@@ -109,20 +124,23 @@ export default function ContactSection() {
                         required
                         className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     ></textarea>
+
+                    <div className="h-10 flex items-center justify-center">
+                        {message && (
+                            <p className={`text-lg font-semibold ${message === "Email sent successfully!" ? "text-green-400" : "text-red-400"}`}>
+                                {message}
+                            </p>
+                        )}
+                    </div>
+
                     <button
                         type="submit"
-                        className="rounded-lg border border-indigo-600 bg-[#111132] px-5 py-3 text-lg font-bold text-white shadow-lg shadow-indigo-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-700"
+                        className="rounded-lg border border-indigo-600 bg-[#111132] px-5 py-3 text-lg font-bold text-white shadow-lg shadow-indigo-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-700"
                         disabled={loading}
                     >
                         {loading ? "Sending..." : "Send Message"}
                     </button>
                 </motion.form>
-                
-                {message && (
-                    <p className={`text-lg font-semibold ${message === "Email sent successfully!" ? "text-green-400" : "text-red-400"}`}>
-                        {message}
-                    </p>
-                )}
             </div>
         </div>
     );
