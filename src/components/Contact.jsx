@@ -11,6 +11,14 @@ export default function ContactSection() {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
+    const showMessage = (msg) => {
+        setMessage(msg);
+
+        setTimeout(() => {
+            setMessage("");
+        }, 3000);
+    };
+
     const sendEmail = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -24,13 +32,13 @@ export default function ContactSection() {
         };
 
         if (!data.user_name || !data.user_email || !data.message) {
-            setMessage("Please fill in all fields.");
+            showMessage("Please fill in all fields.");
             setLoading(false);
             return;
         }
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.user_email)) {
-            setMessage("Please enter a valid email address.");
+            showMessage("Please enter a valid email address.");
             setLoading(false);
             return;
         }
@@ -44,13 +52,13 @@ export default function ContactSection() {
 
             const result = await response.json();
             if (response.ok) {
-                setMessage(result.message);
+                showMessage("Email sent successfully!");
                 form.current.reset();
             } else {
-                throw new Error(result.error || "Failed to send message.");
+                throw new Error();
             }
-        } catch (error) {
-            setMessage(error.message);
+        } catch {
+            showMessage("Failed to send email.");
         } finally {
             setLoading(false);
         }
@@ -109,7 +117,12 @@ export default function ContactSection() {
                         {loading ? "Sending..." : "Send Message"}
                     </button>
                 </motion.form>
-                {message && <p className="text-lg font-semibold text-green-400">{message}</p>}
+                
+                {message && (
+                    <p className={`text-lg font-semibold ${message === "Email sent successfully!" ? "text-green-400" : "text-red-400"}`}>
+                        {message}
+                    </p>
+                )}
             </div>
         </div>
     );
