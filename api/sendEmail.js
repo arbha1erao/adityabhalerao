@@ -5,9 +5,9 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
 
-    const { user_name, user_email, message } = req.body;
+    const { sender_name, sender_email, message } = req.body;
 
-    if (!user_name || !user_email || !message) {
+    if (!sender_name || !sender_email || !message) {
         return res.status(400).json({ error: "All fields are required" });
     }
 
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
                 template_id: process.env.EMAILJS_TEMPLATE_ID,
                 user_id: process.env.EMAILJS_PUBLIC_KEY,
                 accessToken: process.env.EMAILJS_PRIVATE_KEY,
-                template_params: { user_name, user_email, message },
+                template_params: { sender_name, sender_email, message },
             }),
         });
 
