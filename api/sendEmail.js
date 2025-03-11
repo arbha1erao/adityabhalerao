@@ -16,11 +16,12 @@ export default async function handler(req, res) {
             process.env.EMAILJS_SERVICE_ID,
             process.env.EMAILJS_TEMPLATE_ID,
             { user_name, user_email, message },
-            { publicKey: process.env.EMAILJS_PUBLIC_KEY }
+            { privateKey: process.env.EMAILJS_PRIVATE_KEY }
         );
 
         return res.status(200).json({ success: true, message: "Message sent successfully!" });
     } catch (error) {
-        return res.status(500).json({ error: "Failed to send message", details: error });
+        console.error("Email send error:", error);
+        return res.status(500).json({ error: "Failed to send message", details: error.message });
     }
 }
