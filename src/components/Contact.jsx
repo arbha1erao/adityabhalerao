@@ -89,21 +89,21 @@ export default function ContactSection() {
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.6 }}
-                    className="flex flex-col items-center space-y-6 text-center w-full max-w-2xl"
+                    className="flex flex-col items-center space-y-6 text-center w-full max-w-5xl"
                     noValidate
                 >
                     <div className="flex w-full space-x-4">
                         <input
                             type="text"
                             name="sender_name"
-                            placeholder="Your Name"
+                            placeholder="Your Name *"
                             required
                             className="w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         />
                         <input
                             type="email"
                             name="sender_email"
-                            placeholder="Your Email"
+                            placeholder="Your Email *"
                             required
                             className="w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         />
@@ -112,14 +112,14 @@ export default function ContactSection() {
                     <input
                         type="text"
                         name="subject"
-                        placeholder="Subject"
+                        placeholder="Subject *"
                         required
                         className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
 
                     <textarea
                         name="message"
-                        placeholder="Your Message"
+                        placeholder="Your Message *"
                         rows="4"
                         required
                         className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
