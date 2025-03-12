@@ -17,6 +17,14 @@ const contributions = [
             { kind: "[Issue]", title: "Reported Inconsistent MSET Command Behavior", link: "https://github.com/DiceDB/dice/issues/516" },
         ],
     },
+    {
+        title: "p2-inc/keycloak-orgs",
+        link: "https://github.com/p2-inc/keycloak-orgs",
+        summary: "A Keycloak extension enabling single-realm, multi-tenancy for SaaS applications",
+        prs: [
+            { kind: "[PR/Feature]", title: "Add attribute-based filtering to get organization count API", link: "https://github.com/p2-inc/keycloak-orgs/pull/321" }
+        ],
+    },
 ];
 
 export default contributions;
