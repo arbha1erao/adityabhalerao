@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const variants = {
     hidden: { opacity: 0, y: 50 },
@@ -141,6 +142,35 @@ export default function ContactSection() {
                         {loading ? "Sending..." : "Send Message"}
                     </button>
                 </motion.form>
+
+                <div className="flex items-center w-full max-w-3xl space-x-4 text-gray-500">
+                    <hr className="flex-grow border-t border-gray-600" />
+                    <span className="text-lg">Or</span>
+                    <hr className="flex-grow border-t border-gray-600" />
+                </div>
+
+                <div className="flex items-center space-x-6">
+                    <a
+                        href="https://www.linkedin.com/in/bhalerao-aditya/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-lg border border-blue-600 bg-[#111132] px-6 py-3 text-lg font-semibold text-blue-400 shadow-lg shadow-blue-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-700 w-[300px] justify-center"
+                    >
+                        <FaLinkedin size={24} />
+                        <span>Connect on LinkedIn</span>
+                    </a>
+
+                    <a
+                        href="https://github.com/arbha1erao"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-lg border border-orange-600 bg-[#111132] px-6 py-3 text-lg font-semibold text-orange-400 shadow-lg shadow-orange-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-700 w-[300px] justify-center"
+                    >
+                        <FaGithub size={24} />
+                        <span>Follow on GitHub</span>
+                    </a>
+                </div>
+
             </div>
         </div>
     );
