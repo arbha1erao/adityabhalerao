@@ -10,7 +10,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     const hoursInt = Math.floor(hours);
     const minutes = Math.round((hours - hoursInt) * 60);
 
-    if (hoursInt === 0 && minutes === 0) {
+    if (hoursInt === 0) {
       return (
         <div className="bg-gray-800 p-3 rounded-lg border border-gray-700">
           <p className="text-gray-300 font-medium">{label}</p>
