@@ -89,7 +89,7 @@ export default function ContactSection() {
                     variants={variants}
                     initial="hidden"
                     whileInView="visible"
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.5 }}
                     className="flex flex-col space-y-6 text-center w-full"
                     noValidate
                 >

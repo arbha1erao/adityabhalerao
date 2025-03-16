@@ -35,7 +35,7 @@ function Archive() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.04, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5 }}
             className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full"
           >
             <h3 className="text-xl font-semibold text-white text-center">Papershelf</h3>
@@ -50,7 +50,7 @@ function Archive() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.04, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5 }}
             className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full"
           >
             <h3 className="text-xl font-semibold text-white text-center">TED Talks</h3>
