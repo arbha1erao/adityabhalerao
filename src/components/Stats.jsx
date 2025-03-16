@@ -37,11 +37,21 @@ const Stats = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 }
-  }
+  };
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchWakaTimeStats = async () => {
@@ -77,6 +87,8 @@ const Stats = () => {
     fetchWakaTimeStats();
   }, []);
 
+  const displayedData = isMobile ? data.slice(-4) : data;
+
   if (loading) return <p className="text-gray-400 text-center">Loading stats...</p>;
   if (error) return <p className="text-red-500 text-center">Error: {error}</p>;
 
@@ -89,7 +101,6 @@ const Stats = () => {
         transition={{ duration: 0.5 }}
         className="text-4xl font-light text-white md:text-6xl mb-12">
         Stats
-        {/* <SuperscriptHelpIcon /> */}
       </motion.h1>
 
       <motion.p
@@ -109,11 +120,11 @@ const Stats = () => {
         className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full max-w-4xl"
       >
         <h2 className="text-xl font-semibold text-white mb-4">
-          Coding Activity <span className="text-sm text-gray-400">(Last 7 Days)</span>
+          Coding Activity <span className="text-sm text-gray-400">({isMobile ? 'Last 3 Days' : 'Last 7 Days'})</span>
         </h2>
 
         <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={data}>
+          <LineChart data={displayedData}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
             <XAxis
               dataKey="date"
