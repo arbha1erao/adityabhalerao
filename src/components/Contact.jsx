@@ -149,7 +149,13 @@ export default function ContactSection() {
                     <hr className="flex-grow border-t border-gray-600" />
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                <motion.div
+                    variants={variants}
+                    initial="hidden"
+                    whileInView="visible"
+                    transition={{ duration: 0.5 }}
+                    className="flex flex-col md:flex-row items-center gap-4 md:gap-6"
+                >
                     <a
                         href="https://www.linkedin.com/in/bhalerao-aditya/"
                         target="_blank"
@@ -169,7 +175,7 @@ export default function ContactSection() {
                         <FaGithub size={24} />
                         <span>Follow on GitHub</span>
                     </a>
-                </div>
+                </motion.div>
 
             </div>
         </div>
