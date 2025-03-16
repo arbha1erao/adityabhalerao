@@ -116,7 +116,7 @@ const Stats = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         whileHover={{ scale: 1.02, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.5 }}
         className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full max-w-4xl"
       >
         <h2 className="text-xl font-semibold text-white mb-4">
