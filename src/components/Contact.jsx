@@ -69,8 +69,8 @@ export default function ContactSection() {
     };
 
     return (
-        <div id="contact" className="flex min-h-screen min-w-full items-center justify-center">
-            <div className="flex flex-col items-center justify-center space-y-8 p-14">
+        <div id="contact" className="flex flex-col items-center w-full px-8 py-16 pt-24">
+            <div className="flex flex-col items-center justify-center space-y-8 p-14 w-full max-w-5xl">
                 <motion.h1
                     variants={variants}
                     initial="hidden"
@@ -90,23 +90,23 @@ export default function ContactSection() {
                     initial="hidden"
                     whileInView="visible"
                     transition={{ duration: 0.6 }}
-                    className="flex flex-col items-center space-y-6 text-center w-full max-w-5xl"
+                    className="flex flex-col space-y-6 text-center w-full"
                     noValidate
                 >
-                    <div className="flex w-full space-x-4">
+                    <div className="flex flex-col md:flex-row w-full space-y-4 md:space-y-0 md:space-x-4">
                         <input
                             type="text"
                             name="sender_name"
-                            placeholder="Your Name *"
+                            placeholder="Name *"
                             required
-                            className="w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full md:w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         />
                         <input
                             type="email"
                             name="sender_email"
-                            placeholder="Your Email *"
+                            placeholder="Email *"
                             required
-                            className="w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full md:w-1/2 p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         />
                     </div>
 
@@ -120,10 +120,10 @@ export default function ContactSection() {
 
                     <textarea
                         name="message"
-                        placeholder="Your Message *"
+                        placeholder="Message *"
                         rows="4"
                         required
-                        className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full p-3 text-lg border border-gray-600 bg-[#111132] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
                     ></textarea>
 
                     <div className="h-10 flex items-center justify-center">
@@ -136,7 +136,7 @@ export default function ContactSection() {
 
                     <button
                         type="submit"
-                        className="rounded-lg border border-indigo-600 bg-[#111132] px-5 py-3 text-lg font-bold text-white shadow-lg shadow-indigo-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-700"
+                        className="w-[200px] md:w-[300px] mx-auto rounded-lg border border-indigo-600 bg-[#111132] px-5 py-3 text-lg font-bold text-white shadow-lg shadow-indigo-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-700"
                         disabled={loading}
                     >
                         {loading ? "Sending..." : "Send Message"}
@@ -149,12 +149,12 @@ export default function ContactSection() {
                     <hr className="flex-grow border-t border-gray-600" />
                 </div>
 
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                     <a
                         href="https://www.linkedin.com/in/bhalerao-aditya/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-lg border border-blue-600 bg-[#111132] px-6 py-3 text-lg font-semibold text-blue-400 shadow-lg shadow-blue-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-700 w-[300px] justify-center"
+                        className="flex items-center gap-3 rounded-lg border border-blue-600 bg-[#111132] px-6 py-3 text-lg font-semibold text-blue-400 shadow-lg shadow-blue-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-700 w-[300px] md:w-[300px] justify-center"
                     >
                         <FaLinkedin size={24} />
                         <span>Connect on LinkedIn</span>
@@ -164,7 +164,7 @@ export default function ContactSection() {
                         href="https://github.com/arbha1erao"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-lg border border-orange-600 bg-[#111132] px-6 py-3 text-lg font-semibold text-orange-400 shadow-lg shadow-orange-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-700 w-[300px] justify-center"
+                        className="flex items-center gap-3 rounded-lg border border-orange-600 bg-[#111132] px-6 py-3 text-lg font-semibold text-orange-400 shadow-lg shadow-orange-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-700 w-[300px] md:w-[300px] justify-center"
                     >
                         <FaGithub size={24} />
                         <span>Follow on GitHub</span>
