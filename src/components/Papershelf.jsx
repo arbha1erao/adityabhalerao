@@ -5,7 +5,7 @@ import papers from '../data/papershelfData';
 const Papershelf = () => {
   return (
     <div className="flex flex-col items-center w-full px-8 py-16 pt-36">
-      <h1 className="text-4xl font-light text-white md:text-6xl mb-12">
+      <h1 className="text-5xl font-light text-white md:text-7xl mb-16">
         Papershelf
       </h1>
 

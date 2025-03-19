@@ -14,7 +14,7 @@ const Experience = () => {
                 initial="hidden"
                 whileInView="visible"
                 transition={{ duration: 0.5 }}
-                className="text-4xl font-light text-white md:text-6xl mb-12">
+                className="text-5xl font-light text-white md:text-7xl mb-16">
                 Experience
             </motion.h1>
 
