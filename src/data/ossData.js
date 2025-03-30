@@ -6,6 +6,7 @@ const contributions = [
         prs: [
             { kind: "[PR/Feature]", title: "Implemented LCS (Longest Common Substring) Command", link: "https://github.com/redis/rueidis/pull/767" },
             { kind: "[PR/Bug]", title: "Ensure AUTH Command is Sent Before HELLO in NewClient Initialization", link: "https://github.com/redis/rueidis/pull/791" },
+            { kind: "[PR/Bug]", title: "Added SCORER and ADDSCORES Options to FT.AGGREGATE Command in Rueidis", link: "https://github.com/redis/rueidis/pull/815" },
         ],
     },
     {
