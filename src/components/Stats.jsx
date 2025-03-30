@@ -68,13 +68,16 @@ const Stats = () => {
           hours: (entry.grand_total.total_seconds / 3600).toFixed(2),
         }));
 
-        const today = new Date();
-        const tomorrow = new Date();
-        tomorrow.setDate(today.getDate() + 1);
-        formattedData.push({
-          date: tomorrow.toLocaleString('en', { weekday: 'short' }),
-          hours: null,
-        });
+        if (formattedData.length > 0) {
+          const lastDate = new Date(result.data[result.data.length - 1].range.start);
+          const nextDay = new Date(lastDate);
+          nextDay.setDate(lastDate.getDate() + 1);
+
+          formattedData.push({
+            date: nextDay.toLocaleString('en', { weekday: 'short' }),
+            hours: null,
+          });
+        }
 
         setData(formattedData);
       } catch (err) {
@@ -83,6 +86,7 @@ const Stats = () => {
         setLoading(false);
       }
     };
+
 
     fetchWakaTimeStats();
   }, []);
