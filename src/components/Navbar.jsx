@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { useNavigateAndScroll } from "../hooks/useNavigateAndScroll";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,14 +51,14 @@ const Navbar = () => {
         const baseClasses = "cursor-pointer transition-all duration-300 flex items-center";
 
         if (section === activeSection) {
-            return `${baseClasses} text-white opacity-100 font-medium transform scale-125`;
+            return `${baseClasses} text-gray-900 dark:text-white opacity-100 font-medium transform scale-125`;
         }
 
-        return `${baseClasses} opacity-70 hover:opacity-100`;
+        return `${baseClasses} text-gray-700 dark:text-white opacity-70 hover:opacity-100`;
     };
 
     return (
-        <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b border-b-gray-700 bg-black/70 px-16 py-6 text-white backdrop-blur-md md:justify-evenly">
+        <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b border-gray-300 dark:border-gray-700 bg-gray-100/70 dark:bg-black/70 px-16 py-6 text-gray-900 dark:text-white backdrop-blur-md md:justify-evenly">
             <div onClick={() => handleNavigation("/", "hero")} className="cursor-pointer">
                 <img src="/aditya.svg" alt="Aditya Logo" className="h-10 w-10" />
             </div>
@@ -73,30 +74,39 @@ const Navbar = () => {
                 <li onClick={() => handleNavigation("/", "contact")} className={getNavItemClass("contact")}>Contact</li>
             </ul>
 
-            {/* Social Links */}
-            <ul className="hidden md:flex gap-5">
-                <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
+            {/* Social Links and Theme Toggle */}
+            <ul className="hidden md:flex gap-5 items-center">
+                <li className="cursor-pointer opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
                     <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer">
-                        <BsGithub />
+                        <BsGithub className="text-xl text-gray-800 dark:text-white" />
                     </a>
                 </li>
-                <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-blue-500 hover:opacity-100">
+                <li className="cursor-pointer opacity-70 transition-all duration-300 hover:text-blue-500 hover:opacity-100">
                     <a href="https://www.linkedin.com/in/bhalerao-aditya/" target="_blank" rel="noopener noreferrer">
-                        <BsLinkedin />
+                        <BsLinkedin className="text-xl text-gray-800 dark:text-white" />
                     </a>
+                </li>
+                <li>
+                    <ThemeToggle />
                 </li>
             </ul>
 
             {/* Mobile Menu Icon */}
             {isOpen ? (
-                <BiX className="block md:hidden text-4xl" onClick={menuOpen} />
+                <div className="flex items-center md:hidden">
+                    <ThemeToggle />
+                    <BiX className="block md:hidden text-4xl text-gray-800 dark:text-white" onClick={menuOpen} />
+                </div>
             ) : (
-                <BiMenu className="block md:hidden text-4xl" onClick={menuOpen} />
+                <div className="flex items-center md:hidden">
+                    <ThemeToggle />
+                    <BiMenu className="block md:hidden text-4xl text-gray-800 dark:text-white" onClick={menuOpen} />
+                </div>
             )}
 
             {/* Mobile Nav */}
             {isOpen && (
-                <div className="fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start justify-start gap-10 border-l border-gray-800 bg-black/90 p-12">
+                <div className="fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start justify-start gap-10 border-l border-gray-300 dark:border-gray-800 bg-gray-100/90 dark:bg-black/90 p-12">
                     <ul className="flex flex-col gap-8">
                         <li onClick={() => { menuOpen(); handleNavigation("/", "hero"); }} className={getNavItemClass("hero")}>Home</li>
                         <li onClick={() => { menuOpen(); handleNavigation("/", "tech"); }} className={getNavItemClass("tech")}>Tech</li>
@@ -109,12 +119,12 @@ const Navbar = () => {
                     <ul className="flex flex-wrap gap-5">
                         <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
                             <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer">
-                                <BsGithub />
+                                <BsGithub className="text-gray-800 dark:text-white" />
                             </a>
                         </li>
                         <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-blue-500 hover:opacity-100">
                             <a href="https://www.linkedin.com/in/bhalerao-aditya/" target="_blank" rel="noopener noreferrer">
-                                <BsLinkedin />
+                                <BsLinkedin className="text-gray-800 dark:text-white" />
                             </a>
                         </li>
                     </ul>

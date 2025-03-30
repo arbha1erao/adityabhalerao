@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import tech from "../data/techData.js";
+import { useTheme } from "../context/ThemeContext";
 
 const Tech = () => {
+    const { theme } = useTheme();
     const [selectedTech, setSelectedTech] = useState(null);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -23,21 +25,23 @@ const Tech = () => {
 
     return (
         <div id="tech" className="flex flex-col items-center w-full px-8 py-16 pt-36">
-            <motion.h1
-                variants={variants}
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 0.5 }}
-                className="text-5xl font-light text-white md:text-7xl mb-16">
-                Tech Stack
-            </motion.h1>
+            <div className="title-container">
+                <motion.h1
+                    variants={variants}
+                    initial="hidden"
+                    whileInView="visible"
+                    transition={{ duration: 0.5 }}
+                    className="section-title">
+                    Tech Stack
+                </motion.h1>
+            </div>
 
             <motion.p
                 variants={variants}
                 initial="hidden"
                 whileInView="visible"
                 transition={{ duration: 0.5 }}
-                className="text-lg text-gray-300 text-center mb-12">
+                className="text-lg text-gray-700 dark:text-gray-300 text-center mb-12">
                 Technologies I work with daily – from programming languages and frameworks to containerization tools, databases and cloud services.
             </motion.p>
 
@@ -65,15 +69,15 @@ const Tech = () => {
 
             <div className="mt-12 w-full max-w-3xl min-h-[150px]">
                 {selectedTech ? (
-                    <div className="p-6 bg-black/50 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl text-center transition-all duration-300">
-                        <p className="font-semibold text-2xl text-white mb-4 tracking-wide">
-                            {selectedTech.name} <span className="text-gray-400">{selectedTech.stackType}</span>
+                    <div className="p-6 bg-gray-100/50 dark:bg-black/50 backdrop-blur-md rounded-2xl border-gray-300 dark:border-white/10 border shadow-xl text-center transition-all duration-300">
+                        <p className="font-semibold text-2xl text-gray-900 dark:text-white mb-4 tracking-wide">
+                            {selectedTech.name} <span className="text-gray-600 dark:text-gray-400">{selectedTech.stackType}</span>
                         </p>
-                        <ul className="flex flex-wrap justify-center items-center gap-4 text-sm text-gray-300">
+                        <ul className="flex flex-wrap justify-center items-center gap-4 text-sm text-gray-700 dark:text-gray-300">
                             {selectedTech.stack.map((item, i) => (
                                 <li
                                     key={i}
-                                    className="px-4 py-2 bg-gray-800/50 text-white rounded-lg hover:bg-gray-700/80 transition-all duration-300"
+                                    className="px-4 py-2 bg-gray-200/50 dark:bg-gray-800/50 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300/80 dark:hover:bg-gray-700/80 transition-all duration-300"
                                 >
                                     {item}
                                 </li>
@@ -81,7 +85,7 @@ const Tech = () => {
                         </ul>
                     </div>
                 ) : (
-                    <div className="p-5 bg-black/30 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg text-center text-gray-400">
+                    <div className="p-5 bg-gray-200/30 dark:bg-black/30 backdrop-blur-md rounded-2xl border-gray-300 dark:border-white/10 border shadow-lg text-center text-gray-600 dark:text-gray-400">
                         {isMobile ? "* Tap on any tech to explore more *" : "* Hover over any tech to explore more *"}
                     </div>
                 )}

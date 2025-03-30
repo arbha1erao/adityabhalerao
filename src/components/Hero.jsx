@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, Clock, ChevronDown } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const Hero = () => {
+    const { theme } = useTheme();
     const currentTime = new Date().toLocaleTimeString("en-IN", {
         timeZone: "Asia/Kolkata",
         hour: "2-digit",
@@ -17,7 +19,7 @@ const Hero = () => {
 
     return (
         <div id="hero" className="px-16 flex min-h-screen w-full items-center justify-center py-28 md:px-32 relative">
-            <div className="flex flex-col items-center justify-center gap-10 text-white">
+            <div className="flex flex-col items-center justify-center gap-10 text-gray-900 dark:text-white">
                 {/* Profile Image */}
                 <motion.div
                     initial={{ y: -50, opacity: 0 }}
@@ -27,7 +29,7 @@ const Hero = () => {
                     <img
                         src="/aditya.png"
                         alt="Aditya"
-                        className="w-[300px] cursor-pointer rounded-full shadow-xl shadow-indigo-900 transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-700 md:w-[350px]"
+                        className="w-[300px] cursor-pointer rounded-full shadow-xl shadow-indigo-300 dark:shadow-indigo-900 transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-300 dark:hover:shadow-purple-700 md:w-[350px]"
                     />
                 </motion.div>
 
@@ -46,7 +48,7 @@ const Hero = () => {
                     </h3>
 
                     {/* Location & Time */}
-                    <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-lg text-gray-300">
+                    <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-lg text-gray-700 dark:text-gray-300">
                         <span className="flex items-center gap-2">
                             <MapPin className="h-5 w-5 text-indigo-400" />
                             Pune, MH, India
@@ -58,7 +60,7 @@ const Hero = () => {
                     </div>
 
                     {/* About Section */}
-                    <p className="mt-4 md:text-base text-pretty text-sm text-gray-300">
+                    <p className="mt-4 md:text-base text-pretty text-sm text-gray-700 dark:text-gray-300">
                         I'm a Software Engineer with a focus on backend development, passionate about building scalable, efficient, and reliable systems.
                         <br /><br />
                         I specialize in crafting APIs, managing databases, and optimizing server-side performance to deliver seamless user experiences.

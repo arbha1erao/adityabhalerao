@@ -5,7 +5,7 @@ const experiences = [
         role: "Software Engineer",
         duration: "Nov 2024 - Present",
         description: `
-            <ul class="list-disc pl-5 text-gray-300">
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
                 <li class="mb-1">
                     <b>Strata Platform Development</b>: Working on the development and maintenance of <b>Strata</b>, a geodata management platform.
                 </li>
@@ -19,7 +19,7 @@ const experiences = [
         role: "Software Engineer",
         duration: "Jul 2024 - Present",
         description: `
-            <ul class="list-disc pl-5 text-gray-300">
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
                 <li class="mb-1">
                     <b>Backend Development</b>: Developing backend for <b>Pyro</b>, a system designed for companies involved in biochar production.
                 </li>
@@ -36,7 +36,7 @@ const experiences = [
                     <b>B2B Multitenancy</b>: Implemented B2B multitenancy in <b>Pyro</b>, ensuring that each company (tenant) has a fully isolated environment with tailored data and user access.
                 </li>
                 <li class="mb-1">
-                    <b>Antaris Cloud Platform Integration</b>: Integrated various internal services within the <a href="https://www.antaris.space/platform" target="_blank" rel="noopener noreferrer" class="text-blue-500">Antaris Cloud Platform</a>, improving the platform’s service orchestration.
+                    <b>Antaris Cloud Platform Integration</b>: Integrated various internal services within the <a href="https://www.antaris.space/platform" target="_blank" rel="noopener noreferrer" class="text-blue-500">Antaris Cloud Platform</a>, improving the platform's service orchestration.
                 </li>
             </ul>
         `,
@@ -48,7 +48,7 @@ const experiences = [
         role: "SDE Intern",
         duration: "Oct 2023 - July 2024",
         description: `
-            <ul class="list-disc pl-5 text-gray-300">
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
                 <li class="mb-1">
                     <b>Spektra</b>: Fixed multiple bugs in React, enhancing the user experience.
                 </li>
@@ -56,7 +56,7 @@ const experiences = [
                     <b>Ultimate Enterprise and Ultima Accelerator</b>: Addressed and resolved critical Kubernetes RBAC vulnerabilities.
                 </li>
                 <li class="mb-1">
-                    <b>KubeVirt Integration</b>: Worked extensively with KubeVirt, which is implemented as a feature within Diamanti’s product suite.
+                    <b>KubeVirt Integration</b>: Worked extensively with KubeVirt, which is implemented as a feature within Diamanti's product suite.
                 </li>
                 <li class="mb-1">
                     <b>Certifications</b>: Completed the Certified Kubernetes Administrator (CKA) certification.
