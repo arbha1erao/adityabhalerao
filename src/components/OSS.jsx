@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import contributions from '../data/ossData';
+import { useTheme } from '../context/ThemeContext';
 
 const OSS = () => {
+  const { theme } = useTheme();
   const variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 }
@@ -10,21 +12,23 @@ const OSS = () => {
 
   return (
     <div id="oss" className="flex flex-col items-center w-full px-8 py-16 pt-36">
-      <motion.h1
-        variants={variants}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.5 }}
-        className="text-5xl font-light text-white md:text-7xl mb-16">
-        OSS Contributions
-      </motion.h1>
+      <div className="title-container">
+        <motion.h1
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          className="section-title">
+          OSS Contributions
+        </motion.h1>
+      </div>
 
       <motion.p
         variants={variants}
         initial="hidden"
         whileInView="visible"
         transition={{ duration: 0.5 }}
-        className="text-lg text-gray-300 text-center mb-12">
+        className="text-lg text-gray-700 dark:text-gray-300 text-center mb-12">
         Browse the <b>PRs</b> and <b>Issues</b> I've created in various open-source projects.
       </motion.p>
 
@@ -36,7 +40,7 @@ const OSS = () => {
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.04, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
             transition={{ duration: 0.5 }}
-            className="bg-black/80 p-6 rounded-lg shadow-lg border border-gray-800 w-full"
+            className="bg-gray-100/80 dark:bg-black/80 p-6 rounded-lg shadow-lg border border-gray-300 dark:border-gray-800 w-full"
           >
             <h2 className="text-xl font-semibold">
               <a
@@ -49,7 +53,7 @@ const OSS = () => {
               </a>
             </h2>
 
-            <p className="text-gray-400 mt-2 min-h-[48px]">
+            <p className="text-gray-600 dark:text-gray-400 mt-2 min-h-[48px]">
               {contribution.summary}
             </p>
 
@@ -62,7 +66,7 @@ const OSS = () => {
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:underline"
                   >
-                    ➜ <span className="text-gray-400">{pr.kind}</span> {pr.title}
+                    ➜ <span className="text-gray-600 dark:text-gray-400">{pr.kind}</span> {pr.title}
                   </a>
                 </li>
               ))}
