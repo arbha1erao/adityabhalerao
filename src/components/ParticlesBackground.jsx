@@ -82,10 +82,11 @@ const ParticlesBackground = () => {
         const SETTINGS = getSettings(highlightMode, theme);
         
         const activationKey = import.meta.env.VITE_ACTIVATION_KEY;
-        const requiredKeyPressCount = import.meta.env.VITE_ACTIVATION_KEY_PRESS_COUNT;
+        const requiredKeyPressCount = import.meta.env.VITE_ACTIVATION_KEY_PRESS_COUNT ? 
+            parseInt(import.meta.env.VITE_ACTIVATION_KEY_PRESS_COUNT, 10) : undefined;
 
         const handleKeyDown = (e) => {
-            if (e.key.toLowerCase() === activationKey.toLowerCase()) {
+            if (activationKey && e.key && e.key.toLowerCase() === activationKey.toLowerCase()) {
                 const currentTime = Date.now();
                 if (currentTime - lastKeyPressTimeRef.current > KEY_PRESS_TIMEOUT) {
                     keyPressCountRef.current = 0;
@@ -93,7 +94,7 @@ const ParticlesBackground = () => {
                 lastKeyPressTimeRef.current = currentTime;
                 keyPressCountRef.current += 1;
 
-                if (keyPressCountRef.current === Number(requiredKeyPressCount)) {
+                if (requiredKeyPressCount && keyPressCountRef.current === requiredKeyPressCount) {
                     setHighlightMode(true);
                     keyPressCountRef.current = 0;
                     transitionStartRef.current = currentTime;
