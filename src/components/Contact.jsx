@@ -72,7 +72,7 @@ export default function ContactSection() {
 
     return (
         <div id="contact" className="flex flex-col items-center w-full px-8 py-16 pt-24">
-            <div className="flex flex-col items-center justify-center space-y-8 p-14 w-full max-w-5xl">
+            <div className="flex flex-col items-center justify-center space-y-8 p-4 sm:p-14 w-full max-w-5xl">
                 <div className="title-container">
                     <motion.h1
                         variants={variants}
@@ -161,7 +161,7 @@ export default function ContactSection() {
                         href="https://www.linkedin.com/in/bhalerao-aditya/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-lg border border-blue-600 bg-gray-100 dark:bg-[#111132] px-6 py-3 text-lg font-semibold text-blue-400 shadow-lg shadow-blue-300 dark:shadow-blue-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-300 dark:hover:shadow-blue-700 w-[300px] md:w-[300px] justify-center"
+                        className="flex items-center gap-3 rounded-lg border border-blue-600 bg-gray-100 dark:bg-[#111132] px-6 py-3 text-lg font-semibold text-blue-400 shadow-lg shadow-blue-300 dark:shadow-blue-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-300 dark:hover:shadow-blue-700 w-full max-w-[300px] md:w-[300px] justify-center"
                     >
                         <FaLinkedin size={24} />
                         <span>Connect on LinkedIn</span>
@@ -171,12 +171,13 @@ export default function ContactSection() {
                         href="https://github.com/arbha1erao"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-lg border border-orange-600 bg-gray-100 dark:bg-[#111132] px-6 py-3 text-lg font-semibold text-orange-400 shadow-lg shadow-orange-300 dark:shadow-orange-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-300 dark:hover:shadow-orange-700 w-[300px] md:w-[300px] justify-center"
+                        className="flex items-center gap-3 rounded-lg border border-orange-600 bg-gray-100 dark:bg-[#111132] px-6 py-3 text-lg font-semibold text-orange-400 shadow-lg shadow-orange-300 dark:shadow-orange-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-300 dark:hover:shadow-orange-700 w-full max-w-[300px] md:w-[300px] justify-center"
                     >
                         <FaGithub size={24} />
                         <span>Follow on GitHub</span>
                     </a>
                 </motion.div>
+                <div className="h-32"></div>
             </div>
         </div>
     );
