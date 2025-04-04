@@ -8,6 +8,31 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const navigateAndScroll = useNavigateAndScroll();
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        const checkDarkMode = () => {
+            const isDark = document.documentElement.classList.contains('dark') ||
+                (localStorage.getItem('theme') === 'dark');
+            setIsDarkMode(isDark);
+        };
+
+        setMounted(true);
+        checkDarkMode();
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    checkDarkMode();
+                }
+            });
+        });
+
+        observer.observe(document.documentElement, { attributes: true });
+
+        return () => observer.disconnect();
+    }, []);
 
     const menuOpen = () => {
         setIsOpen(!isOpen);
@@ -57,10 +82,14 @@ const Navbar = () => {
         return `${baseClasses} text-gray-700 dark:text-white opacity-70 hover:opacity-100`;
     };
 
+    const logoSrc = isDarkMode ? "/aditya-logo-light.svg" : "/aditya-logo-dark.svg";
+
     return (
         <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b border-gray-300 dark:border-gray-700 bg-gray-100/70 dark:bg-black/70 px-16 py-6 text-gray-900 dark:text-white backdrop-blur-md md:justify-evenly">
             <div onClick={() => handleNavigation("/", "hero")} className="cursor-pointer">
-                <img src="/aditya.svg" alt="Aditya Logo" className="h-10 w-10" />
+                {mounted && (
+                    <img src={logoSrc} alt="Aditya Logo" className="h-10 w-10" />
+                )}
             </div>
 
             {/* Desktop Nav */}
