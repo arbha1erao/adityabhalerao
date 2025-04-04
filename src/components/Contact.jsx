@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { ChevronUp } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 const variants = {
@@ -13,6 +14,13 @@ export default function ContactSection() {
     const form = useRef();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
+
+    const navigateToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
 
     const showMessage = (msg) => {
         setMessage(msg);
@@ -71,7 +79,7 @@ export default function ContactSection() {
     };
 
     return (
-        <div id="contact" className="flex flex-col items-center w-full px-8 py-16 pt-24">
+        <div id="contact" className="flex flex-col items-center w-full px-8 py-16 pt-24 relative">
             <div className="flex flex-col items-center justify-center space-y-8 p-4 sm:p-14 w-full max-w-5xl">
                 <div className="title-container">
                     <motion.h1
@@ -179,6 +187,17 @@ export default function ContactSection() {
                 </motion.div>
                 <div className="h-32"></div>
             </div>
-        </div>
+
+            <motion.div
+                className="absolute bottom-10 flex flex-col items-center cursor-pointer"
+                onClick={navigateToTop}
+                initial={{ y: 10, opacity: 0.7 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ repeat: Infinity, repeatType: "reverse", duration: 1 }}
+            >
+                <ChevronUp className="h-10 w-10 text-gray-700 dark:text-gray-300 animate-bounce stroke-[2.5]" />
+                <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">Go back to top</span>
+            </motion.div>
+        </div >
     );
 }
