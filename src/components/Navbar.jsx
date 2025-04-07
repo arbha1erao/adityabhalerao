@@ -126,40 +126,63 @@ const Navbar = () => {
                 {isOpen ? (
                     <div className="flex items-center md:hidden">
                         <ThemeToggle />
-                        <BiX className="block md:hidden text-4xl text-gray-800 dark:text-white" onClick={menuOpen} />
+                        <BiX className="block md:hidden text-4xl text-gray-800 dark:text-white ml-3" onClick={menuOpen} />
                     </div>
                 ) : (
                     <div className="flex items-center md:hidden">
                         <ThemeToggle />
-                        <BiMenu className="block md:hidden text-4xl text-gray-800 dark:text-white" onClick={menuOpen} />
+                        <BiMenu className="block md:hidden text-4xl text-gray-800 dark:text-white ml-3" onClick={menuOpen} />
                     </div>
                 )}
 
                 {/* Mobile Nav */}
                 {isOpen && (
-                    <div className="fixed right-4 top-24 flex h-auto w-64 flex-col items-start justify-start gap-8 rounded-xl border border-gray-300 dark:border-gray-800 bg-gray-100/90 dark:bg-black/90 p-8 shadow-lg">
-                        <ul className="flex flex-col gap-6 w-full">
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "hero"); }} className={getNavItemClass("hero")}>Home</li>
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "tech"); }} className={getNavItemClass("tech")}>Tech</li>
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "experience"); }} className={getNavItemClass("experience")}>Experience</li>
-                            {/* <li onClick={() => { menuOpen(); handleNavigation("/", "projects"); }} className={getNavItemClass("projects")}>Projects</li> */}
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "oss"); }} className={getNavItemClass("oss")}>OSS</li>
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "archive"); }} className={getNavItemClass("archive")}>Archive</li>
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "stats"); }} className={getNavItemClass("stats")}>Stats</li>
-                            <li onClick={() => { menuOpen(); handleNavigation("/", "contact"); }} className={getNavItemClass("contact")}>Contact</li>
-                        </ul>
-                        <ul className="flex gap-5 mt-2">
-                            <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
-                                <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer">
-                                    <BsGithub className="text-gray-800 dark:text-white" />
+                    <div className="fixed top-20 left-0 right-0 mx-4 bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 shadow-md z-50">
+                        <div className="p-4">
+                            <nav className="flex flex-col space-y-3 text-gray-900 dark:text-white antialiased">
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "hero"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "hero" ? "font-bold" : ""}`}>
+                                    Home
+                                </div>
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "tech"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "tech" ? "font-bold" : ""}`}>
+                                    Tech
+                                </div>
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "experience"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "experience" ? "font-bold" : ""}`}>
+                                    Experiences
+                                </div>
+                                {/* <div onClick={() => { menuOpen(); handleNavigation("/", "projects"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "projects" ? "font-bold" : ""}`}>
+                                    Projects
+                                </div> */}
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "oss"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "oss" ? "font-bold" : ""}`}>
+                                    OSS
+                                </div>
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "archive"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "archive" ? "font-bold" : ""}`}>
+                                    Archive
+                                </div>
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "stats"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "stats" ? "font-bold" : ""}`}>
+                                    Stats
+                                </div>
+                                <div onClick={() => { menuOpen(); handleNavigation("/", "contact"); }}
+                                    className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "contact" ? "font-bold" : ""}`}>
+                                    Contact
+                                </div>
+                            </nav>
+
+                            <div className="flex justify-center mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
+                                <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer" className="mx-3">
+                                    <BsGithub className="text-2xl text-gray-800 dark:text-white" />
                                 </a>
-                            </li>
-                            <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-blue-500 hover:opacity-100">
-                                <a href="https://www.linkedin.com/in/bhalerao-aditya/" target="_blank" rel="noopener noreferrer">
-                                    <BsLinkedin className="text-gray-800 dark:text-white" />
+                                <a href="https://www.linkedin.com/in/bhalerao-aditya/" target="_blank" rel="noopener noreferrer" className="mx-3">
+                                    <BsLinkedin className="text-2xl text-gray-800 dark:text-white" />
                                 </a>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>
