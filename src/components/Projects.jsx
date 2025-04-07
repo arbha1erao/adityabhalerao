@@ -23,6 +23,20 @@ const Projects = () => {
     setShowModal(false);
   };
 
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleEscapeKeyPress = (e) => {
+      if (showModal && e.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscapeKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleEscapeKeyPress);
+    };
+  }, [showModal]);
+
 
   return (
     <div id="projects" className="flex flex-col items-center w-full px-8 py-16 pt-36 relative">
@@ -65,7 +79,7 @@ const Projects = () => {
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 text-xs font-medium bg-gray-200/70 dark:bg-gray-700/70 text-gray-700 dark:text-gray-300 rounded"
+                      className="px-2 py-1 text-xs font-medium bg-gray-300/90 dark:bg-gray-700/70 text-gray-700 dark:text-gray-300 rounded"
                     >
                       {tech}
                     </span>
@@ -91,7 +105,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300"
+                    className="flex items-center gap-2 text-sm font-medium text-orange-400 hover:text-orange-500 border border-orange-600 rounded-lg px-2 py-1 transition-colors duration-300"
                   >
                     <Github size={18} />
                     <span>Code</span>
@@ -124,15 +138,17 @@ const Projects = () => {
               transition={{ duration: 0.2 }}
               className="fixed inset-0 bg-black/50 z-40"
               onClick={closeModal}
+              style={{ pointerEvents: 'auto' }}
             />
 
-            <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
-                className="bg-gray-100 dark:bg-gray-900 overflow-y-auto rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 max-w-6xl w-full max-h-[90vh]"
+                className="bg-gray-100 dark:bg-black overflow-y-auto rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 max-w-6xl w-full max-h-[90vh] pointer-events-auto"
+                onClick={(e) => e.stopPropagation()}
               >
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
@@ -150,7 +166,7 @@ const Projects = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div className="md:col-span-1">
-                      <div className="w-full h-48 md:h-64 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                      <div className="w-full h-48 md:h-64 overflow-hidden rounded-lg flex items-center justify-center">
                         <img
                           src={selectedProject.image}
                           alt={selectedProject.title}
@@ -164,7 +180,7 @@ const Projects = () => {
                         {selectedProject.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-2 py-1 text-xs font-medium bg-gray-200/70 dark:bg-gray-700/70 text-gray-700 dark:text-gray-300 rounded"
+                            className="px-2 py-1 text-xs font-medium bg-gray-300/90 dark:bg-gray-700/70 text-gray-700 dark:text-gray-300 rounded"
                           >
                             {tech}
                           </span>
@@ -182,10 +198,10 @@ const Projects = () => {
                             href={selectedProject.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg transition-colors duration-300"
+                            className="flex items-center justify-center gap-2 rounded-lg border border-orange-600 bg-gray-100 dark:bg-black px-4 py-2 text-orange-400 transition-all duration-300 hover:scale-105"
                           >
                             <Github size={16} />
-                            <span className="font-medium">GitHub</span>
+                            <span className="font-medium">Code</span>
                           </a>
                         )}
                         {selectedProject.demo && (
