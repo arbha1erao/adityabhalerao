@@ -97,6 +97,7 @@ const Navbar = () => {
                 <li onClick={() => handleNavigation("/", "hero")} className={getNavItemClass("hero")}>Home</li>
                 <li onClick={() => handleNavigation("/", "tech")} className={getNavItemClass("tech")}>Tech</li>
                 <li onClick={() => handleNavigation("/", "experience")} className={getNavItemClass("experience")}>Experience</li>
+                {/* <li onClick={() => handleNavigation("/", "projects")} className={getNavItemClass("projects")}>Projects</li> */}
                 <li onClick={() => handleNavigation("/", "oss")} className={getNavItemClass("oss")}>OSS</li>
                 <li onClick={() => handleNavigation("/", "archive")} className={getNavItemClass("archive")}>Archive</li>
                 <li onClick={() => handleNavigation("/", "stats")} className={getNavItemClass("stats")}>Stats</li>
@@ -140,6 +141,7 @@ const Navbar = () => {
                         <li onClick={() => { menuOpen(); handleNavigation("/", "hero"); }} className={getNavItemClass("hero")}>Home</li>
                         <li onClick={() => { menuOpen(); handleNavigation("/", "tech"); }} className={getNavItemClass("tech")}>Tech</li>
                         <li onClick={() => { menuOpen(); handleNavigation("/", "experience"); }} className={getNavItemClass("experience")}>Experience</li>
+                        {/* <li onClick={() => { menuOpen(); handleNavigation("/", "projects"); }} className={getNavItemClass("projects")}>Projects</li> */}
                         <li onClick={() => { menuOpen(); handleNavigation("/", "oss"); }} className={getNavItemClass("oss")}>OSS</li>
                         <li onClick={() => { menuOpen(); handleNavigation("/", "archive"); }} className={getNavItemClass("archive")}>Archive</li>
                         <li onClick={() => { menuOpen(); handleNavigation("/", "stats"); }} className={getNavItemClass("stats")}>Stats</li>
