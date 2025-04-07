@@ -13,6 +13,7 @@ import Papershelf from "./components/Papershelf";
 import Stats from "./components/Stats";
 import OSS from "./components/OSS";
 import ParticlesBackground from "./components/ParticlesBackground";
+import Projects from "./components/Projects";
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
                 <Hero />
                 <Tech />
                 <Experience />
+                {/* <Projects /> */}
                 <OSS />
                 <Archive />
                 <Stats />
