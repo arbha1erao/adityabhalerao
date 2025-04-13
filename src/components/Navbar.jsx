@@ -139,7 +139,7 @@ const Navbar = () => {
                 {isOpen && (
                     <div className="fixed top-20 left-0 right-0 mx-4 bg-gray-100 dark:bg-black rounded-lg border border-gray-200 dark:border-gray-800 shadow-md z-50">
                         <div className="p-4">
-                            <nav className="flex flex-col space-y-3 text-gray-900 dark:text-white antialiased">
+                            <nav className="flex flex-col space-y-3 text-center">
                                 <div onClick={() => { menuOpen(); handleNavigation("/", "hero"); }}
                                     className={`px-4 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 text-lg text-gray-900 dark:text-white ${activeSection === "hero" ? "font-bold" : ""}`}>
                                     Home
