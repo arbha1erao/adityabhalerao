@@ -8,10 +8,8 @@ import { useTheme } from "../context/ThemeContext";
 const CustomTooltip = ({ active, payload, label, theme }) => {
   if (active && payload && payload.length) {
     const hours = payload[0].value;
-    const hoursInt = Math.floor(hours);
-    const minutes = Math.round((hours - hoursInt) * 60);
 
-    if (hoursInt === 0) {
+    if (hours === 0 || hours === null) {
       return (
         <div className={`${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'} p-3 rounded-lg ${theme === 'dark' ? 'border-gray-700' : 'border-gray-300'} border`}>
           <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} font-medium`}>{label}</p>
@@ -19,6 +17,9 @@ const CustomTooltip = ({ active, payload, label, theme }) => {
         </div>
       );
     }
+
+    const hoursInt = Math.floor(hours);
+    const minutes = Math.round((hours - hoursInt) * 60);
 
     return (
       <div className={`${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'} p-3 rounded-lg ${theme === 'dark' ? 'border-gray-700' : 'border-gray-300'} border`}>
@@ -65,10 +66,13 @@ const Stats = () => {
         }
 
         const result = await response.json();
-        const formattedData = result.data.map((entry) => ({
-          date: new Date(entry.range.start).toLocaleString('en', { weekday: 'short' }),
-          hours: (entry.grand_total.total_seconds / 3600).toFixed(2),
-        }));
+        const formattedData = result.data.map((entry) => {
+          const hoursValue = (entry.grand_total.total_seconds / 3600);
+          return {
+            date: new Date(entry.range.start).toLocaleString('en', { weekday: 'short' }),
+            hours: hoursValue < 1 ? 0 : parseFloat(hoursValue.toFixed(2))
+          };
+        });
 
         if (formattedData.length > 0) {
           const lastDate = new Date(result.data[result.data.length - 1].range.start);
