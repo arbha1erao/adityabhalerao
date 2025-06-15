@@ -176,7 +176,7 @@ export default function ContactSection() {
                     </a>
 
                     <a
-                        href="https://github.com/arbha1erao"
+                        href="https://github.com/arbhalerao"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-3 rounded-lg border border-orange-600 bg-gray-100 dark:bg-[#111132] px-6 py-3 text-lg font-semibold text-orange-400 shadow-lg shadow-orange-300 dark:shadow-orange-900 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-300 dark:hover:shadow-orange-700 w-full max-w-[300px] md:w-[300px] justify-center"

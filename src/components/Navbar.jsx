@@ -108,7 +108,7 @@ const Navbar = () => {
                 {/* Social Links and Theme Toggle */}
                 <ul className="hidden md:flex gap-5 items-center">
                     <li className="cursor-pointer opacity-70 transition-all duration-300 hover:text-orange-500 hover:opacity-100">
-                        <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/arbhalerao" target="_blank" rel="noopener noreferrer">
                             <BsGithub className="text-xl text-gray-800 dark:text-white" />
                         </a>
                     </li>
@@ -175,7 +175,7 @@ const Navbar = () => {
                             </nav>
 
                             <div className="flex justify-center mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                                <a href="https://github.com/arbha1erao" target="_blank" rel="noopener noreferrer" className="mx-3">
+                                <a href="https://github.com/arbhalerao" target="_blank" rel="noopener noreferrer" className="mx-3">
                                     <BsGithub className="text-2xl text-orange-400" />
                                 </a>
                                 <a href="https://www.linkedin.com/in/bhalerao-aditya/" target="_blank" rel="noopener noreferrer" className="mx-3">
