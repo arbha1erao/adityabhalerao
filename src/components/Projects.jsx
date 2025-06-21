@@ -37,6 +37,9 @@ const Projects = () => {
     };
   }, [showModal]);
 
+  const getThemeImage = (project) => {
+    return theme === 'dark' ? project.images.dark : project.images.light;
+  };
 
   return (
     <div id="projects" className="flex flex-col items-center w-full px-8 py-16 pt-36 relative">
@@ -63,13 +66,12 @@ const Projects = () => {
           >
             <div className="w-full md:w-1/3 h-48 md:h-auto md:min-h-[12rem] mb-4 md:mb-0 md:mr-6 overflow-hidden rounded-lg flex items-center justify-center shrink-0">
               <img
-                src={project.image}
+                src={getThemeImage(project)}
                 alt={project.title}
-                className="w-auto h-auto max-w-full max-h-full object-contain transition-all duration-500 hover:scale-110"
+                className="w-auto h-auto max-w-full max-h-full object-contain transition-all duration-500 hover:scale-110 rounded-md"
               />
             </div>
 
-            {/* Right side - Content */}
             <div className="flex flex-col flex-grow">
               <div className="mb-3">
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -164,41 +166,23 @@ const Projects = () => {
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div className="md:col-span-1">
-                      <div className="w-full h-48 md:h-64 overflow-hidden rounded-lg flex items-center justify-center">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <div className="lg:col-span-1">
+                      <div className="w-full h-48 md:h-64 overflow-hidden rounded-lg flex items-center justify-center p-4">
                         <img
-                          src={selectedProject.image}
+                          src={getThemeImage(selectedProject)}
                           alt={selectedProject.title}
-                          className="w-auto h-auto max-w-full max-h-full object-contain"
+                          className="w-auto h-auto max-w-full max-h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
-                    </div>
 
-                    <div className="md:col-span-2">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {selectedProject.technologies.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 text-xs font-medium bg-gray-300/90 dark:bg-gray-700/70 text-gray-700 dark:text-gray-300 rounded"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h3 className="font-medium text-gray-900 dark:text-white mb-2">Description:</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                        {selectedProject.description}
-                      </p>
-
-                      <div className="flex gap-4">
+                      <div className="flex flex-col sm:flex-row gap-3 mt-4 justify-center">
                         {selectedProject.github && (
                           <a
                             href={selectedProject.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 rounded-lg border border-orange-600 bg-gray-100 dark:bg-black px-4 py-2 text-orange-400 transition-all duration-300 hover:scale-105"
+                            className="flex items-center justify-center gap-2 rounded-lg border border-orange-600 bg-gray-100 dark:bg-black px-4 py-2 text-orange-400 transition-all duration-300 hover:scale-105 w-full"
                           >
                             <Github size={16} />
                             <span className="font-medium">Code</span>
@@ -209,24 +193,56 @@ const Projects = () => {
                             href={selectedProject.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 px-4 py-2 bg-sky-500 text-white hover:bg-sky-600 rounded-lg transition-colors duration-300"
+                            className="flex items-center justify-center gap-2 px-4 py-2 bg-sky-500 text-white hover:bg-sky-600 rounded-lg transition-colors duration-300 w-full"
                           >
                             <ExternalLink size={16} />
                             <span className="font-medium">Live Demo</span>
                           </a>
                         )}
                       </div>
-                    </div>
-                  </div>
 
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="font-medium text-gray-900 dark:text-white mb-2">Features:</h3>
-                      <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                        {selectedProject.features?.map((feature, i) => (
-                          <li key={i}>{feature}</li>
-                        ))}
-                      </ul>
+                      <div className="mt-4">
+                        <h3 className="font-medium text-gray-900 dark:text-white mb-2">Technologies:</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProject.technologies.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="px-2 py-1 text-xs font-medium bg-gray-300/90 dark:bg-gray-700/70 text-gray-700 dark:text-gray-300 rounded"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-2">
+                      <div className="space-y-6">
+                        <div>
+                          <h3 className="font-medium text-gray-900 dark:text-white mb-2">Description:</h3>
+                          <p className="text-gray-600 dark:text-gray-400">
+                            {selectedProject.description}
+                          </p>
+                        </div>
+
+                        <div>
+                          <h3 className="font-medium text-gray-900 dark:text-white mb-2">Features:</h3>
+                          <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 ml-2">
+                            {selectedProject.features?.map((feature, i) => (
+                              <li key={i}>{feature}</li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {selectedProject.challenges && (
+                          <div>
+                            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Challenges:</h3>
+                            <p className="text-gray-600 dark:text-gray-400">
+                              {selectedProject.challenges}
+                            </p>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

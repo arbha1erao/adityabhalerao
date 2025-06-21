@@ -31,7 +31,7 @@ export default function App() {
                 <Hero />
                 <Tech />
                 <Experience />
-                {/* <Projects /> */}
+                <Projects />
                 <OSS />
                 <Papershelf />
                 <Stats />
