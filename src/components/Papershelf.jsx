@@ -5,12 +5,33 @@ import { useTheme } from '../context/ThemeContext';
 
 const Papershelf = () => {
   const { theme } = useTheme();
-  
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 }
+  }
+
   return (
-    <div className="flex flex-col items-center w-full px-8 py-16 pt-36">
-      <h1 className="section-title">
-        Papershelf
-      </h1>
+    <div id="papershelf" className="flex flex-col items-center w-full px-8 py-16 pt-36">
+      <div className="title-container">
+        <motion.h1
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          className="section-title">
+          Papershelf
+        </motion.h1>
+      </div>
+
+      <motion.p
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="text-lg text-gray-700 dark:text-gray-300 text-center mb-12">
+        A collection of research papers I've found insightful. These papers span various fields and have broadened my understanding of different concepts.
+      </motion.p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
         {papers.map((paper, index) => (

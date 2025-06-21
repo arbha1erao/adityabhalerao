@@ -6,9 +6,7 @@ import Contact from "./components/Contact";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Tech from "./components/Tech";
-import Archive from "./components/Archive";
 import Experience from "./components/Experience";
-import TedTalksList from "./components/TedTalksList";
 import Papershelf from "./components/Papershelf";
 import Stats from "./components/Stats";
 import OSS from "./components/OSS";
@@ -35,25 +33,9 @@ export default function App() {
                 <Experience />
                 {/* <Projects /> */}
                 <OSS />
-                <Archive />
+                <Papershelf />
                 <Stats />
                 <Contact />
-              </main>
-            }
-          />
-          <Route
-            path="/archive/papershelf"
-            element={
-              <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
-                <Papershelf />
-              </main>
-            }
-          />
-          <Route
-            path="/archive/tedtalks"
-            element={
-              <main className="flex flex-col items-center px-4 md:px-8 lg:px-16">
-                <TedTalksList />
               </main>
             }
           />
